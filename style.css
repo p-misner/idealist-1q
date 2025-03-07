@@ -1,0 +1,95 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  /* overflow: hidden; */
+  /* height: 600vh; */
+  background-color: white;
+}
+
+.pageWrapper {
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  /* overflow-y: scroll; */
+}
+.textWrapper {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  h1 {
+    text-align: center;
+    /* background-color: rgba(220, 220, 220, 0.22); */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    font-size: 56px;
+    line-height: 80px;
+    font-weight: 500;
+  }
+}
+.circleSwarm {
+  /* background-color: rgba(154, 154, 154, 0.384); */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  visibility: hidden;
+}
+.calendarWrapper {
+  /* background-color: rgba(154, 154, 154, 0.384); */
+  position: fixed;
+  top: 85%;
+  left: 100%;
+  transform: translate(-50%, -50%);
+  width: 200vw;
+  height: 100vh;
+  .date {
+    visibility: hidden;
+  }
+}
+
+.globe {
+  position: fixed;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, 0px);
+  path {
+    opacity: 0;
+  }
+  circle {
+    opacity: 0;
+  }
+}
+
+.star {
+  opacity: 0;
+}
+.triggerBoxes {
+  top: 0px;
+  div {
+    background-color: red;
+    width: 10px;
+    height: 1px;
+    margin-bottom: 100vh;
+  }
+}
+.progressBar {
+  position: fixed;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.062);
+  height: 10px;
+  width: 10px;
+}
+
+.green {
+  background-color: #76c237;
+}
+.dot {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+}
