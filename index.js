@@ -39,6 +39,15 @@ const textBlocks = [
   {
     text: "share a joyful symbol that anyone can adopt and adapt in any way they like.",
   },
+  {
+    text: "I believe that if we do this consistently, going wider and deeper day after day",
+  },
+  {
+    text: "and month after month",
+  },
+  {
+    text: "the world could be a very different place by the end of next year.",
+  },
 ];
 
 for (let i = 0; i < textBlocks.length; i++) {
@@ -76,8 +85,71 @@ document.addEventListener("DOMContentLoaded", (event) => {
       autoAlpha: "1",
     });
   }
-
+  //trigger 0 stagger pulsing points
+  gsap.to(".pulsingPoint", {
+    scrollTrigger: {
+      trigger: `#trigger0`,
+    },
+    stagger: Math.random() / 2,
+    autoAlpha: "1",
+    duration: 1,
+  });
+  //trigger 1 pulse points
+  const outerCircle = document.querySelectorAll(`.outer`);
+  outerCircle.forEach((element, index) => {
+    gsap.to(element, {
+      scrollTrigger: {
+        trigger: `#trigger1`, // start the animation when ".box" enters the viewport (once)
+        toggleActions: "play none none reset",
+      },
+      strokeWidth: 5,
+      r: 20 + Math.random() * 20,
+      duration: Math.random() * 5 + 1,
+      repeat: Math.floor(Math.random() * 1),
+      opacity: 0,
+      stroke: `${
+        Math.random() < 0.8
+          ? "#76C237"
+          : Math.random() > 0.5
+          ? "#FBD001"
+          : "#0297E4"
+      }`,
+    });
+  });
+  //trigger 2
+  gsap.to(".countries", {
+    scrollTrigger: {
+      trigger: `#trigger2`, // start the animation when ".box" enters the viewport (once)
+      toggleActions: "play none reverse reset",
+    },
+    autoAlpha: "0",
+    duration: 1,
+  });
+  gsap.to(".distorted", {
+    scrollTrigger: {
+      trigger: `#trigger2`, // start the animation when ".box" enters the viewport (once)
+      toggleActions: "play none reverse reset",
+    },
+    autoAlpha: "0",
+    duration: 0.5,
+  });
   //trigger 3 circle swarm appears
+  const circularCircles = document.querySelectorAll(`.circular`);
+  circularCircles.forEach((element, index) => {
+    gsap.to(element, {
+      scrollTrigger: {
+        trigger: `#trigger2`, // start the animation when ".box" enters the viewport (once)
+        toggleActions: "play none reverse reset",
+      },
+      delay: 1,
+      x: `${Math.random() < 0.5 ? "-" : "+"}=${Math.random() * 100 + 100}`,
+      y: `${Math.random() < 0.5 ? "-" : "+"}=${Math.random() * 100 + 120}`,
+      autoAlpha: "0",
+      duration: 3,
+      r: 20,
+    });
+  });
+
   gsap.to(".circleSwarm", {
     scrollTrigger: {
       trigger: `#trigger3`, // start the animation when ".box" enters the viewport (once)
@@ -476,7 +548,56 @@ document.addEventListener("DOMContentLoaded", (event) => {
     },
     delay: 1,
     duration: 1,
-    y: "-=100",
+    r: 0,
   });
+
+  const starBurst = document.querySelectorAll(".starburst");
+  starBurst.forEach((element, index) => {
+    gsap.to(element, {
+      scrollTrigger: {
+        toggleActions: "play none none reset",
+        trigger: `#trigger11`,
+      },
+      delay: 2,
+      duration: 2,
+      opacity: 1,
+      backgroundColor: `${Math.random() < 0.8 ? "#76C237" : "#0297E4"}`,
+      x: `${Math.random() < 0.5 ? "-" : "+"}=${Math.random() * 800 + 100}`,
+      y: `${Math.random() < 0.5 ? "-" : "+"}=${Math.random() * 800 + 120}`,
+    });
+  });
+  // trigger 12  dots vanish
+  starBurst.forEach((element, index) => {
+    gsap.to(element, {
+      scrollTrigger: {
+        toggleActions: "play none none reset",
+        trigger: `#trigger12`,
+      },
+      duration: 1,
+      opacity: 0,
+    });
+  });
+  gsap.to(".sceneWrapper", {
+    scrollTrigger: {
+      toggleActions: "play none none reset",
+      trigger: `#trigger12`,
+    },
+    delay: 1,
+    duration: 2,
+    autoAlpha: 1,
+  });
+
+  // trigger 13  symbols appear
+
+  gsap.to(".logo", {
+    scrollTrigger: {
+      toggleActions: "play none none reset",
+      trigger: `#trigger13`,
+    },
+    stagger: 1,
+    duration: 1,
+    autoAlpha: 1,
+  });
+
   //this is the closing tag
 });
